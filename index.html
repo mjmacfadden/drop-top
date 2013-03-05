@@ -1,0 +1,107 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html>
+<head>
+	<title>My Interweb Desktop</title>
+	<LINK REL="apple-touch-icon" HREF="/apple-touch-icon.png" />
+	<link rel="stylesheet" type="text/css" href="style.css" />
+
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+	<!------- ICON ANIMATION -------->
+	<script>
+		$(document).ready(function(){
+
+			 $('.growImage').mouseover(function(){
+				//moving the div left a bit is completely optional
+				//but should have the effect of growing the image from the middle.
+				$(this).stop().animate({"height": "90px", "width": "90px", "left":"0px","top":"0px"}, 100,'swing');
+			 }).mouseout(function(){ 
+				$(this).stop().animate({"height": "50px","width": "50px", "left":"15px","top":"15px"}, 100,'swing');
+			 });;
+		});
+
+		jQuery.fn.center = function() {
+			 return this.each(function(){
+			 		var el = $(this);
+			 		var h = el.height();
+			 		var w = el.width();
+			 		var w_box = $(window).width();
+			 		var h_box = $(window).height();	
+			 		var w_total = (w_box - w)/2; //400
+			 		var h_total = (h_box - h)/2;
+			 		var css = {"position": 'absolute', "left": w_total+"px", "top":
+		h_total+"px"};
+			 		el.css(css)
+			 });
+		};
+	</script>
+
+	<!------- NOTE ------->
+	<script type="text/javascript">
+		function show_note() {
+			$('#post_it').fadeIn('medium').removeClass('bye_bye');
+		}
+		function hide_note() {
+			$('#post_it').fadeOut('fast');
+		}
+		function show_weather() {
+			$('#weather').fadeIn('medium').removeClass('bye_bye');
+		}
+		function hide_weather() {
+			$('#weather').fadeOut('fast');
+		}
+	</script>
+</head>
+
+<body>
+
+	<!------- SEARCH ------->
+	<form method="get" action="http://www.google.com/search" id="search" target="_blank"> 
+		<input type="text" name="q" size="400" maxlength="600" value="" autocomplete="off" placeholder="search..."id="search_bar"/> 
+	</form>
+
+	
+	<!-------- NOTE -------->
+	<div id="post_it" class="bye_bye">
+		<img src="images/x.png" id="exit" onclick="hide_note()" >
+		<textarea id="note"></textarea>
+	</div>
+
+	<!------ WEATHER ------->
+	<div id="weather" class="bye_bye">
+		<img src="images/x.png" id="weather_exit" onclick="hide_weather()" >
+		<img src="http://weathersticker.wunderground.com/cgi-bin/banner/ban/wxBanner?bannertype=wu_bluestripes&airportcode=KUGN&ForcedCity=Lake Villa&ForcedState=IL" alt="Click for Lake Villa, Illinois Forecast" height="90" width="160" />
+	</div>
+
+	<!-------CALCULATOR----->
+	<div id="calc_wrap">
+		   
+	</div>
+
+	<!-------LAUNCHER------->
+	<div id="wrapper">
+		<div id="nav">
+			<span id="buttons">
+				<a href="http://calendar.google.com" target="_blank"><img src="images/calendar.png" class="growImage"/></a>
+				<a href="http://gmail.com" target="_blank"><img src="images/gmail.png" class="growImage"/></a>
+				<a href="http://drive.google.com" target="_blank"><img src="images/google_drive.png" class="growImage"/></a>
+				<a href="http://www.twitter.com" target="_blank"><img src="images/twitter.png" class="growImage"/></a>
+				<a href="http://www.facebook.com" target="_blank"><img src="images/facebook.png" class="growImage"/></a>
+				<a href="https://plus.google.com/" target="_blank"><img src="images/google_plus.png" class="growImage"/></a>
+				<a href="http://youtube.com" target="_blank"><img src="images/youtube.png" class="growImage"/></a>
+				<a href="http://wevideo.com/" target="_blank"><img src="images/wevideo.png" class="growImage"/></a>
+				<a href="http://pixlr.com/editor" target="_blank"><img src="images/pixlr.png" class="growImage"/></a>
+				<a href="http://hulu.com" target="_blank"><img src="images/hulu.png" class="growImage"/></a>
+				<a href="http://pandora.com" target="_blank"><img src="images/pandora.png" class="growImage"/></a>
+				<a href="http://district41.edmodo.com" target="_bshow_notelank"><img src="images/edmodo.png" class="growImage"/></a>
+				<a href="http://mmacfadden.com" target="_blank"><img src="images/mmacfadden.png" class="growImage"/></a>
+				<a href="http://chicagotribune.com" target="_blank"><img src="images/chicago_tribune.png" class="growImage"/></a>
+				<a href="http://rain.simplynoise.com" target="_blank"><img src="images/rain.png" class="growImage"/></a>
+				<img src="images/weather.png" class="growImage show_weather" onclick="show_weather()"/>
+				<img src="images/note.png" class="growImage show_note" onclick="show_note()" />
+			</span>
+		</div>
+	</div>
+	
+</body>
+</html>
